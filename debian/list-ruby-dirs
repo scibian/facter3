@@ -1,0 +1,7 @@
+#!/usr/bin/ruby
+
+require 'ruby_debian_dev'
+
+RubyDebianDev::RUBY_INTERPRETERS.each do |interp, data|
+  puts %x{#{data[:binary]} -rrbconfig -e 'puts RbConfig::CONFIG["vendorarchdir"]'}
+end

@@ -1,0 +1,5 @@
+version=3
+opts=\
+uversionmangle=s{(.*(?:alpha|beta|rc).*)}{~$1},\
+pgpsigurlmangle=s/$/.asc/ \
+https://downloads.puppetlabs.com/facter/facter-(\S+)\.tar\.gz

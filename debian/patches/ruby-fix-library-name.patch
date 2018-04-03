@@ -1,0 +1,25 @@
+Author: Apollon Oikonomopoulos <apoikos@debian.org>
+Description: Use libruby directly from Ruby's $LOAD_PATH
+Last-Update: 2018-03-02
+Forwarded: no (Debian-specific)
+--- a/lib/facter.rb.in
++++ b/lib/facter.rb.in
+@@ -27,17 +27,7 @@
+   else
+     # Simply require libfacter.so; this will define all of the Facter API
+     begin
+-      facter_dir = ENV['FACTERDIR'] || File.join(File.expand_path("#{File.dirname(__FILE__)}"), '${LIBFACTER_INSTALL_RELATIVE}')
+-      #
+-      # This is a cmake pre-processor check. On *nix it will end up '' == '1'
+-      # On windows, where we want the changes it will be '1' == '1'
+-      #
+-      # Facter requires the extra inclusion of puppet/bin as the libfacter.so
+-      # lib requires libraries and executables from that directory
+-      if '${WIN32}' == '1'
+-        ENV['PATH'] = "#{File.join(facter_dir, 'bin')}#{File::PATH_SEPARATOR}#{File.join(facter_dir, '../puppet/bin')}#{File::PATH_SEPARATOR}#{ENV['PATH']}"
+-      end
+-      require "#{facter_dir}/${LIBFACTER_INSTALL_DESTINATION}/libfacter.so"
++      require "libfacter.so"
+     rescue LoadError
+       raise LoadError.new('libfacter was not found. Please make sure it was installed to the expected location.')
+     end

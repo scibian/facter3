@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+include /usr/share/dpkg/pkg-info.mk
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+%:
+	dh $@
+
+override_dh_missing:
+	dh_missing --fail-missing
+
+override_dh_link:
+	dh_link
+	for target in $$($(CURDIR)/debian/list-ruby-dirs); do \
+		dh_link -pfacter \
+		   /usr/lib/$(DEB_HOST_MULTIARCH)/libfacter.so.$(DEB_VERSION_UPSTREAM) \
+		   "$${target}/libfacter.so"; \
+	done

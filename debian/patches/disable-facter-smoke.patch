@@ -1,0 +1,18 @@
+Author: Apollon Oikonomopoulos <apoikos@debian.org>
+Description: Disable the `smoke' test during build
+ The buildds are too stripped down (e.g. no /proc) for facter to run reliably.
+Last-Update: 2018-03-03
+Forwarded: no (Debian-specific)
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -165,7 +165,9 @@
+         add_test(NAME "libfacter\\ specs" COMMAND ${BUNDLER_PATH} exec rspec WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/lib")
+     endif()
+ endif()
+-add_test(NAME "facter\\ smoke" COMMAND facter)
++# Debian: disable the smoke tests, as the build environment lacks necessary
++# information (e.g. /proc) causing spurious errors
++#add_test(NAME "facter\\ smoke" COMMAND facter)
+ 
+ # Install the man page
+ if ("${CMAKE_SYSTEM_NAME}" MATCHES "OpenBSD|FreeBSD")

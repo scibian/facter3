@@ -1,0 +1,6 @@
+Bug-Database: https://tickets.puppetlabs.com/browse/FACT/?selectedTab=com.atlassian.jira.jira-projects-plugin:issues-panel
+Changelog: https://tickets.puppetlabs.com/browse/FACT/?selectedTab=com.atlassian.jira.jira-projects-plugin:changelog-panel
+Name: facter
+Repository: https://github.com/puppetlabs/facter.git
+Repository-Browse: https://github.com/puppetlabs/facter
+Security-Contact: Puppet Labs Security Team <security@puppetlabs.com>

@@ -1,0 +1,9 @@
+Tests: run
+Restrictions: allow-stderr
+Depends: @
+
+Tests: ruby
+Depends: facter, ruby
+
+Tests: puppet
+Depends: facter, puppet

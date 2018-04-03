@@ -1,0 +1,27 @@
+facter (3.10.0-3) unstable; urgency=medium
+
+  This is a major upgrade from the 2.x series with many breaking changes.
+
+  Facter has been rewritten in C++ and the old Ruby implementation has been
+  removed. Facter still provides a Ruby API for custom facts, however much of
+  the old Ruby API is no longer available. As a result, custom facts may have
+  to be modified to work with the current Ruby API.
+
+  Furthermore some rarely-used facts have been removed, potentially breaking
+  Puppet manifests that use them.
+
+  Please check the release notes at
+
+    https://docs.puppet.com/facter/3.0/release_notes.html
+
+  and all subsequent release notes for a detailed account of breaking changes.
+
+ -- Apollon Oikonomopoulos <apoikos@debian.org>  Mon, 05 Mar 2018 23:13:37 +0200
+
+facter (1.5.8-1) experimental; urgency=low
+
+  When upgrading facter from 1.5.1 (the version in "lenny") or any previous
+  version, a running puppet instance will stop working due to API changes in
+  facter. If you have a running puppetd instance, it must be restarted.
+
+ -- Stig Sandbeck Mathisen <ssm@debian.org>  Wed, 01 Dec 2010 16:05:08 +0100

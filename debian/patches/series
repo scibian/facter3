@@ -1,0 +1,4 @@
+use-shared-cpp-hocon.patch
+ruby-fix-library-name.patch
+disable-facter-smoke.patch
+rapidjson-1.1-compat.patch
