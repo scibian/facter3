@@ -1,3 +1,11 @@
+facter3 (3.10.0-4~bpo9+1sc9u1) scibian9; urgency=medium
+
+  * Rename source + binary packages to facter3
+  * Back to compat 10 with dh 10
+  * Scibianize package
+
+ -- Rémi Palancher <remi-externe.palancher@edf.fr>  Tue, 27 Apr 2021 15:56:23 +0200
+
 facter (3.10.0-4~bpo9+1) stretch-backports; urgency=medium
 
   * Backport to stretch
