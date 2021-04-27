@@ -15,7 +15,7 @@ override_dh_missing:
 override_dh_link:
 	dh_link
 	for target in $$($(CURDIR)/debian/list-ruby-dirs); do \
-		dh_link -pfacter \
+		dh_link -pfacter3 \
 		   /usr/lib/$(DEB_HOST_MULTIARCH)/libfacter.so.$(DEB_VERSION_UPSTREAM) \
 		   "$${target}/libfacter.so"; \
 	done
